@@ -2,6 +2,7 @@ import express from 'express';
 import { movies, movieReviews, movieDetails } from './moviesData';
 import uniqid from 'uniqid';
 
+
 app.use(express.json());
 
 
@@ -53,11 +54,12 @@ router.post('/:id/reviews', (req, res) => {
     }
 });
 
-// Get movie details
-router.get('/:id', (req, res) => {
+// Get movie reviews
+router.get('/:id/reviews', (req, res) => {
     const id = parseInt(req.params.id);
-    if (movieDetails.id == id) {
-        res.status(200).json(movieDetails);
+    // find reviews in list
+    if (movieReviews.id == id) {
+        res.status(200).json(movieReviews);
     } else {
         res.status(404).json({
             message: 'The resource you requested could not be found.',
@@ -65,5 +67,7 @@ router.get('/:id', (req, res) => {
         });
     }
 });
+
+
 
 export default router;
