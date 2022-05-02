@@ -1,7 +1,9 @@
 import dotenv from 'dotenv';
 import express from 'express';
+import './db';
 app.use(express.json());
 import moviesRouter from './api/movies';
+import './seedData'
 
 dotenv.config();
 
