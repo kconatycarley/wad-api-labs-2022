@@ -4,6 +4,8 @@ import './db';
 app.use(express.json());
 import moviesRouter from './api/movies';
 import './seedData'
+import usersRouter from './api/users';
+app.use('/api/users', usersRouter);
 
 dotenv.config();
 
